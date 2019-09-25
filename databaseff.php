@@ -37,5 +37,18 @@ catch (PDOException $e)
 {
     echo "There is some problem in connection: " . $e->getMessage();
 }
-
+try
+{
+    $stmt=$db->prepare("INSERT INTO data(Id,name) values(:id,:name)");
+      $stmt->execute(array(':id'=>555,':name'=>'wsdfre'));
+      echo"data has been added successfully";
+    }
+      catch(PDOException $e){
+        echo "there is some error".$e.getMessage();
+      }
+    $sql = "SELECT * FROM data " ;
+    foreach ($db->query($sql) as $row) {
+    echo " ID: ".$row['Id'] . "<br>";
+    echo " Name: ".$row['Name'] . "<br>";
+    }
 ?>
