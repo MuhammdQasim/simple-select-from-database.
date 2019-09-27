@@ -1,5 +1,5 @@
 <?php
-Class Connection {
+Class databaseff {
 private  $server = "mysql:host=localhost;dbname=muhmd_qasim";
 private  $user = "root";
 private  $pass = "";
@@ -25,7 +25,7 @@ public function closeConnection() {
 
 try
 {
-    $database = new Connection();
+    $database = new databaseff();
     $db = $database->openConnection();
     $sql = "SELECT * FROM data " ;
     foreach ($db->query($sql) as $row) {
@@ -51,4 +51,5 @@ try
     echo " ID: ".$row['Id'] . "<br>";
     echo " Name: ".$row['Name'] . "<br>";
     }
+
 ?>
